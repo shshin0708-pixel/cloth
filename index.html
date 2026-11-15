@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff9ef">
+  <title>지구촌 전통의상 포토부스</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <div class="topbar"><span class="brand-mark">✦</span><span>지구촌 전통의상 포토부스</span><span class="step" id="stepLabel"></span></div>
+
+    <section class="screen start-screen active" id="startScreen" aria-labelledby="startTitle">
+      <div class="start-copy">
+        <p class="eyebrow">우리 함께 떠나는 옷 여행</p>
+        <h1 id="startTitle">지구촌<br><em>전통의상</em><br>포토부스</h1>
+        <p class="lead">세계 여러 나라의 멋진 옷을 입어볼까요?</p>
+        <button class="button primary huge" id="startButton">시작하기 <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="start-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><img src="assets/costumes/korea_girl_hanbok.png" alt=""><img src="assets/costumes/korea_boy_hanbok.png" alt=""><div class="sparkle s1">✦</div><div class="sparkle s2">✧</div><div class="sparkle s3">✦</div></div>
+    </section>
+
+    <section class="screen select-screen" id="selectScreen" aria-labelledby="selectTitle">
+      <header class="screen-header"><div><p class="eyebrow">1 / 3 · 옷 고르기</p><h2 id="selectTitle">어떤 옷을 입을까?</h2><p>마음에 드는 옷을 눌러 주세요.</p></div><button class="button ghost" id="selectHome">처음으로</button></header>
+      <div class="costume-grid" id="costumeGrid"></div>
+      <div class="page-controls"><button class="page-button" id="prevPage" aria-label="이전 의상 보기">← 이전</button><span id="pageLabel" aria-live="polite"></span><button class="page-button" id="nextPage" aria-label="다음 의상 보기">다음 →</button></div>
+    </section>
+
+    <section class="screen camera-screen" id="cameraScreen" aria-labelledby="cameraTitle">
+      <header class="screen-header compact"><div><p class="eyebrow">2 / 3 · 얼굴 찍기</p><h2 id="cameraTitle">친구의 얼굴을 찍어 주세요!</h2><p>얼굴을 동그라미 안에 맞춰 주세요.</p></div><button class="button ghost" id="cameraBack">옷 다시 고르기</button></header>
+      <div class="camera-layout"><div class="camera-frame"><video id="cameraVideo" autoplay muted playsinline></video><div class="face-guide" aria-hidden="true"></div><div class="camera-message" id="cameraMessage" role="status"></div></div><div class="camera-actions"><div class="selected-costume" id="cameraCostume"></div><button class="button primary huge shutter" id="captureButton" disabled><span aria-hidden="true">📷</span> 찰칵!</button><button class="button secondary" id="retryCameraButton" hidden>카메라 다시 켜기</button><p class="privacy-note">사진은 이 기기 안에서만 사용해요.</p></div></div>
+    </section>
+
+    <section class="screen edit-screen" id="editScreen" aria-labelledby="editTitle">
+      <header class="screen-header compact"><div><p class="eyebrow">3 / 3 · 멋진 변신</p><h2 id="editTitle">얼굴을 옷에 맞춰 보세요!</h2><p>방향 버튼으로 얼굴을 움직일 수 있어요.</p></div><button class="button ghost" id="retakeButton">사진 다시 찍기</button></header>
+      <div class="edit-layout"><div class="preview-wrap"><canvas id="previewCanvas" width="1024" height="1024" aria-label="합성된 사진 미리보기"></canvas><div class="preview-error" id="editMessage" role="alert" hidden></div></div><div class="edit-panel"><div class="selected-costume" id="editCostume"></div><div class="move-pad" aria-label="얼굴 위치 조절"><button class="move up" data-adjust="up" aria-label="얼굴 위로">↑</button><button class="move left" data-adjust="left" aria-label="얼굴 왼쪽으로">←</button><span class="pad-center">얼굴<br>움직이기</span><button class="move right" data-adjust="right" aria-label="얼굴 오른쪽으로">→</button><button class="move down" data-adjust="down" aria-label="얼굴 아래로">↓</button></div><div class="size-controls"><button class="button secondary" data-adjust="smaller">얼굴 작게 −</button><button class="button secondary" data-adjust="larger">얼굴 크게 ＋</button></div><button class="button primary" id="finishButton">완성! →</button></div></div>
+    </section>
+
+    <section class="screen finish-screen" id="finishScreen" aria-labelledby="finishTitle"><header class="finish-header"><p class="eyebrow">멋진 옷 여행 완료</p><h2 id="finishTitle">멋진 변신 성공!</h2></header><div class="finish-layout"><div class="preview-wrap result"><canvas id="resultCanvas" width="1024" height="1024" aria-label="완성된 전통의상 사진"></canvas></div><div class="finish-actions"><div class="selected-costume" id="finishCostume"></div><button class="button primary" id="saveButton">사진 저장하기 ↓</button><button class="button secondary" id="changeCostumeButton">다른 옷 입기</button><button class="button warm" id="nextFriendButton">다음 친구 차례 →</button><p class="privacy-note">다음 친구 차례를 누르면 지금 사진이 지워져요.</p></div></div></section>
+  </main>
+  <script src="app.js?v=7" defer></script>
+</body>
+</html>
